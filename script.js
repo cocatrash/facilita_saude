@@ -1,14 +1,28 @@
+const inputs = document.querySelectorAll('.input');
+const button = document.querySelector('.login__button');
 
-var btnSignin = document.querySelector("#signin");
-var btnSignup = document.querySelector("#signup");
+const handleFocus = ({ target }) => {
+  const span = target.previousElementSibling;
+  span.classList.add('span-active');
+}
 
-var body = document.querySelector("body");
+const handleFocusOut = ({ target }) => {
+  if (target.value === '') {
+    const span = target.previousElementSibling;
+    span.classList.remove('span-active');
+  }
+}
 
+const handleChange = () => {
+  const [username, password] = inputs;
 
-btnSignin.addEventListener("click", function () {
-   body.className = "sign-in-js"; 
-});
+  if (username.value && password.value.length >= 8) {
+    button.removeAttribute('disabled');
+  } else {
+    button.setAttribute('disabled', '');
+  }
+}
 
-btnSignup.addEventListener("click", function () {
-    body.className = "sign-up-js";
-})
+inputs.forEach((input) => input.addEventListener('focus', handleFocus));
+inputs.forEach((input) => input.addEventListener('focusout', handleFocusOut));
+inputs.forEach((input) => input.addEventListener('input', handleChange));
