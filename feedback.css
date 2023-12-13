@@ -120,3 +120,19 @@ section .imgBx img{
     border-radius: 5px;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+    section {
+        flex-direction: column; 
+        align-items: center; 
+    }
+    section .content {
+        padding: 50px; 
+    }
+    section .imgBx {
+        padding-right: 0; 
+    }
+    .nav {
+      
+    }
+}
