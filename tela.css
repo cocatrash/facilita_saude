@@ -33,9 +33,6 @@ header {
 .user p {
     font-weight: bold;
 }
-.user a {
-    font-weight: bold;
-}
 
 .rectangle {
     display: flex;
